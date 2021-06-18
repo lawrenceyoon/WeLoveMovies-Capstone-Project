@@ -3,8 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(express.json());
+// Middleware
 app.use(cors());
+app.use(express.json());
+
+// Routes
 
 // Not found handler
 app.use((req, res, next) => {

@@ -8,7 +8,7 @@ An API that follows RESTful design principles.
 
 A project that tests my knowledge of backend APIs.
 
-- Install aand use common middleware packages
+- Install and use common middleware packages
 - Receive requests through routes
 - Run tests strictly from command line
 - Access relevant info through route and query parameters
