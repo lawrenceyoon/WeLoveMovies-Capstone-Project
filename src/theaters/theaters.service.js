@@ -1,13 +1,23 @@
 const knex = require('../db/connection');
-const mapProperties = require('../utils/map-properties');
-
-const addMovies = mapProperties({});
 
 function list() {
   return knex('theaters as t')
-    .join('movies_theaters as mt', 'mt.theater_id', 't.theater_id')
+    .join('movies_theaters as mt', 't.theater_id', 'mt.theater_id')
     .join('movies as m', 'mt.movie_id', 'm.movie_id')
-    .select();
+    .select(
+      't.theater_id',
+      't.name',
+      't.address_line_1',
+      't.address_line_2',
+      't.city',
+      't.state',
+      't.zip',
+      'm.movie_id',
+      'm.title',
+      'm.runtime_in_minutes',
+      'm.rating',
+      'm.description'
+    );
 }
 
 module.exports = {

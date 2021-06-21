@@ -12,7 +12,7 @@ exports.up = function (knex) {
       .references('theater_id')
       .inTable('theaters')
       .onDelete('CASCADE');
-    table.boolean('is_showing');
+    table.boolean('is_showing').defaultTo(false);
     table.timestamps(true, true);
   });
 };

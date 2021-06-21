@@ -16,19 +16,23 @@ async function movieExists(req, res, next) {
   });
 }
 
+// http methods
 function read(req, res) {
   res.json({ data: res.locals.movie });
 }
 
+// working on
 async function list(req, res, next) {
-  const isShowing = req.query.is_showing;
-  if (typeof isShowing === 'undefined') {
-    const data = await service.list();
-    res.json({ data });
-  } else {
-    const data = await service.moviesAreShowing();
-    res.json({ data });
-  }
+  // const isShowing = req.query.is_showing;
+  // if (typeof isShowing === 'undefined') {
+  //   const data = await service.list();
+  //   res.json({ data });
+  // } else {
+  //   const data = await service.moviesAreShowing();
+  //   res.json({ data });
+  // }
+  const data = await service.list(req.query.is_showing);
+  res.json({ data });
 }
 
 module.exports = {
