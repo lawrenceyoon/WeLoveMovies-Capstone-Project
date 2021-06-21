@@ -10,6 +10,10 @@ function list() {
 
 function moviesAreShowing(isShowing) {
   console.log(isShowing);
+  // select distinct movies.* from movies
+  // join movies_theaters on movies.movie_id = movies_theaters.movie_id
+  // where movies_theaters.is_showing = true
+  // order by movies.movie_id;
   return knex('movies as m')
     .select('m.*')
     .distinct()
