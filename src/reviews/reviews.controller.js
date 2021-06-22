@@ -1,6 +1,7 @@
 const service = require('./reviews.service');
 const asyncErrorBoundary = require('../errors/asyncErrorBoundary');
 
+// validation
 async function reviewExists(req, res, next) {
   const { reviewId } = req.params;
   const review = await service.read(reviewId);
@@ -15,7 +16,13 @@ async function reviewExists(req, res, next) {
   });
 }
 
-// need help
+// http requests
+async function list(req, res, next) {
+  const { movieId } = req.params;
+  const data = await service.list(movieId);
+  res.json({ data });
+}
+
 async function update(req, res, next) {
   const updatedReview = {
     ...req.body.data,
@@ -33,6 +40,7 @@ async function destroy(req, res, next) {
 }
 
 module.exports = {
+  list,
   update: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(update)],
   delete: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(destroy)],
 };

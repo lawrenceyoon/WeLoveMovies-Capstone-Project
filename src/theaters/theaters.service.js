@@ -1,5 +1,6 @@
 const knex = require('../db/connection');
 
+// return only these selected columns
 function list() {
   return knex('theaters as t')
     .join('movies_theaters as mt', 't.theater_id', 'mt.theater_id')

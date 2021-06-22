@@ -3,6 +3,7 @@ const asyncErrorBoundary = require('../errors/asyncErrorBoundary');
 const mapProperties = require('../utils/map-properties');
 const reduceProperties = require('../utils/reduce-properties');
 
+// using this provided function to return return movies array in this specific format
 const reduceTheaterAndMovies = reduceProperties('theater_id', {
   movie_id: ['movies', null, 'movie_id'],
   title: ['movies', null, 'title'],
